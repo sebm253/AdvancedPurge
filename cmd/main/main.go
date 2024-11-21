@@ -1,6 +1,7 @@
 package main
 
 import (
+	"advanced-purge/handlers"
 	"context"
 	"log/slog"
 	"os"
@@ -22,9 +23,10 @@ func main() {
 
 	slog.Info("starting the bot...", slog.String("disgo.version", disgo.Version))
 
-	client, err := disgo.New(os.Getenv("BOT_TOKEN"),
+	client, err := disgo.New(os.Getenv("ADVANCED_PURGE_TOKEN"),
 		bot.WithGatewayConfigOpts(gateway.WithIntents(gateway.IntentsNone)),
-		bot.WithCacheConfigOpts(cache.WithCaches(cache.FlagsNone)))
+		bot.WithCacheConfigOpts(cache.WithCaches(cache.FlagsNone)),
+		bot.WithEventListeners(handlers.NewHandler()))
 	if err != nil {
 		panic(err)
 	}
@@ -35,7 +37,7 @@ func main() {
 		panic(err)
 	}
 
-	slog.Info("bot is now running.")
+	slog.Info("advanced purge is now running.")
 	s := make(chan os.Signal, 1)
 	signal.Notify(s, syscall.SIGINT, syscall.SIGTERM, os.Interrupt, os.Kill)
 	<-s
