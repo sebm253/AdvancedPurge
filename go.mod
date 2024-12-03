@@ -3,7 +3,7 @@ module advanced-purge
 go 1.23
 
 require (
-	github.com/disgoorg/disgo v0.18.13
+	github.com/disgoorg/disgo v0.18.14
 	github.com/disgoorg/snowflake/v2 v2.0.3
 	github.com/lmittmann/tint v1.0.5
 )
