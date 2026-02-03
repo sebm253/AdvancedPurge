@@ -5,7 +5,7 @@ go 1.23
 require (
 	github.com/disgoorg/disgo v0.18.16
 	github.com/disgoorg/snowflake/v2 v2.0.3
-	github.com/lmittmann/tint v1.1.2
+	github.com/lmittmann/tint v1.1.3
 )
 
 require (
